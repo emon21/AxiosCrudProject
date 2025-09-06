@@ -65,22 +65,24 @@
 
     <!-- show modal -->
 
-    <div class="modal fade modal-lg" id="showModal" tabindex="-1" aria-labelledby="showModalLabel">
+    <div class="modal fade modal-lg" id="showModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="showModalLabel">Blog Information</h5>
+                    <h5 class="modal-title" id="showModalLabel">Blog Details :</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <h3>Blog Information</h3>
-
+                    <table class="table table-bordered table-striped">
+                        <tbody id="showModalBody"></tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- show modal End -->
+
 
     <!-- Edit modal -->
 
@@ -109,7 +111,7 @@
                 <td>
                     <button class="btn btn-primary" onclick="EditCategory(${item.id}, '${item.title}')">Edit</button>
                     <button onclick="DeleteBlog(${item.id})" class="btn btn-danger">Delete</button>
-                    <button onclick="showBlog(${item.title})" class="btn btn-warning">Show</button>
+                    <button class="btn btn-warning" data-id="${item.id}" data-bs-toggle="modal" data-bs-target="#showModal" id="viewRow">Show</button>
                 </td>
             </tr>`
 
@@ -168,13 +170,38 @@
         }
 
         //  Show data
-        $('body').on('click', '#showModal', function() {
+        $('body').on('click', '#viewRow', function() {
 
-            let slug = document.getElementById('data-id')
+            // let slug = document.getElementById('data-id')
 
             // let slug = $(this).attr('data-id')
-            // let slug = $(this).data('id')
-            console.log(slug);
+            let id = $(this).data('id')
+            console.log(id);
+
+            let url = BASE_URL + '/blog/' + id;
+
+            axios.get(url).then(res => {
+
+                // console.log(res.data);
+                let response = `
+                            <tr>
+                            <th class="w-25">Name : </th>
+                            <td class="w-75">${res.data.title}</td>
+                             </tr>
+                             <tr>
+                            <th>Description : </th>
+                            <td>${res.data.description}</td>
+                             </tr>
+                             <tr>
+                            <th>Status : </th>
+                            <td>${res.data.status}</th>
+                            </tr>
+                            `
+                let tbdy = document.querySelector('#showModalBody');
+                tbdy.innerHTML = response;
+
+            });
+
             // let id = $(this).attr('data-id');
             // axios.get(`${BASE_URL}/blog/${id}`).then(res => {
 
@@ -187,13 +214,13 @@
         function DeleteBlog(id) {
             axios.delete(`${BASE_URL}/blog/${id}`)
                 .then(() => {
-                    toasterMessage("success","Blog deleted successfully!","Delete");
+                    toasterMessage("success", "Blog deleted successfully!", "Delete");
                     AllBlogList();
                 })
                 .catch(() => {
-                    toasterMessage("error","Delete failed!","Sorry");
+                    toasterMessage("error", "Delete failed!", "Sorry");
                 })
-               
+
         }
     </script>
 @endpush
