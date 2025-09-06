@@ -3,6 +3,9 @@ const Baseurl = window.location.origin;
 
 const BASE_URL = window.location.origin;
 
+// const admin_Base_Url = `${window.location.origin}/admin`;
+const admin_Base_Url = window.location.origin;
+
 function showLoader() {
     document.getElementById("loader").style.display = "flex";
     document.getElementById("content").style.display = "none";

@@ -1,6 +1,6 @@
 <div class="col-sm-2" id="mySidenav">
     <div class="sidebar bg-dark" id="sidebar">
-        <h4 class="text-white">My Sidebar</h4>
+        <h4 class="text-white">Admin Dashboard</h4>
         <hr class="border-light">
         <a href="#">🏠 Dashboard</a>
         <a href="#">📦 Products</a>
@@ -16,3 +16,5 @@
             Blog</a>
     </div>
 </div>
+
+

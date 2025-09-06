@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class BlogController extends Controller
 {
@@ -13,24 +14,42 @@ class BlogController extends Controller
         return view("blog.index");
     }
 
+    function index()
+    {
+        // return view("blog.index");
+        // $api = Http::get("https://jsonplaceholder.typicode.com/users");
+        // return response()->json(["blog" => $api->json()]); //$api;
+
+        return Blog::latest()->get();
+        // return response()->json(Blog::all());
+    }
 
     // store
 
-    public function store(Request $request){
-       
-        // $this->validate($request, [
-        //     "title"=> "required",
-        //     "description"=> "required",
-        //     "image"=> "required",
-        //     ]);
+    public function store(Request $request)
+    {
+        // return response()->json($data);
 
-            // $data = $request->all();
-
-            // return response()->json($data);
-
+        // return $request->all();
         return Blog::create($request->all());
-
     }
 
+    # show
+    public function show(Blog $blog)
+    {
+        return view("blog.index", compact(""));
+    }
 
+    # update
+    public function update(Request $request, Blog $blog) {}
+
+    # Delete Method
+    public function destroy(Blog $blog)
+    {
+
+        return response()->json([
+            "message" => "Blog Deleted",
+            "data" => $blog->delete()
+        ], 200);
+    }
 }

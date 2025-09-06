@@ -8,24 +8,12 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 -   [Axis](https://laravel.com/docs/routing).
 -   [Toaster](https://laravel.com/docs/container).
--   Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
 ## Project Feature
 
 -   Rest Api
 -   Axios Crud
 -   Bootstrap Modal
-
-### Premium Partners
-
--   **[Rest Api]**
--   **[Tighten Co.](https://tighten.co)**
--   **[WebReinvent](https://webreinvent.com/)**
 
 ## Project Setup
