@@ -1,0 +1,126 @@
+
+/*  custom css */
+
+/*
+   theame Name : Axios Admin
+   theame Version : 1.0
+   theame Author : Md Hasibul Islam
+   theame Author URL : https://github.com/hasibulislam
+
+   theam URL : https://github.com/hasibulislam/axios-admin
+
+*/
+
+body {
+      font-family: Arial, sans-serif;
+    }
+
+/* Loader center style */
+
+ #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+
+    .spinner {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #3498db;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+ 
+
+ .avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+ }
+
+ .sidebar {
+    width: 300px;
+    height: 100vh;
+    position: fixed;
+    top: 68px;
+    left: 0;
+    background: #343a40;
+    color: #fff;
+    padding-top: 10px;
+    transition: all .5s ease-in-out;
+    border-top-right-radius: 7px;
+ }
+
+ .sidebar h4 {
+    padding-left: 10px;
+   margin-top: 20px;
+      font-size: 14px;
+      color: #adb5bd;
+      text-transform: uppercase;
+ }
+
+ .sidebar a {
+    color: #adb5bd;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    transition: all .5s ease-in-out;
+ }
+
+ .sidebar a:hover {
+    background: #495057;
+    color: #fff;
+ }
+
+ .sidebar a.active {
+    background: #495057;
+    color: white
+ }
+
+
+/*   
+    .sidebar {
+      width: 250px;
+      height: 100vh;
+      background-color: #343a40;
+      color: #fff;
+      padding: 15px;
+      position: fixed;
+    }
+    .sidebar a {
+      display: block;
+      color: #fff;
+      padding: 8px 15px;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      transition: background 0.3s;
+    }
+    .sidebar a:hover {
+      background-color: #495057;
+      text-decoration: none;
+    }
+    .sidebar h4 {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #adb5bd;
+      text-transform: uppercase;
+    } */
+
+  
+
